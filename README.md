@@ -74,15 +74,11 @@ The launch file coordinates:
 ## Installation
 
 ```bash
-# Create a ROS2 workspace
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws/src
-
 # Clone this repository
 git clone https://github.com/ThiwakarS/ROS2-jazzy-GZ-harmonic.git
 
 # Install dependencies
-cd ~/ros2_ws
+cd ~/ros2_ws_urdf
 rosdep install --from-paths src --ignore-src -r -y
 
 # Build the workspace
