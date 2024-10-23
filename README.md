@@ -135,7 +135,7 @@ Contributions are welcome! Please feel free to submit pull requests or create is
 ## Support
 
 If you encounter any difficulties or have questions, please:
-1. Check the [Issues](https://github.com/yourusername/your-repo-name/issues) section
+1. Check the [Issues](https://github.com/ThiwakarS/ROS2-jazzy-GZ-harmonic/issues) section
 2. Create a new issue if your problem isn't already documented
 3. Contact me at thiwakarprivate1230@gmail.com
 
