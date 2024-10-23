@@ -93,12 +93,12 @@ colcon build
 
 1. Source your ROS2 workspace:
 ```bash
-source ~/ros2_ws/install/setup.bash
+source ~/ros2_ws_urdf/install/setup.bash
 ```
 
 2. Launch the simulation:
 ```bash
-ros2 ros2 launch my_robot_bringup my_robot_gz.launch.py
+ros2 launch my_robot_bringup my_robot_gz.launch.py
 ```
 
 3. Control the robot using geometry messages:
