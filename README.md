@@ -1,6 +1,6 @@
-# ROS2-jazzy-GZ-harmonic
-
 # ROS2 Jazzy with Gazebo Harmonic Integration Example
+
+# Building this workspace is must. use colcon build to build the workspace.
 
 This repository demonstrates how to integrate ROS2 Jazzy Jalisco with Gazebo GZ Harmonic, showcasing a differential drive robot in a warehouse environment. This project addresses the transition from Gazebo Classic (now deprecated) to Gazebo Harmonic, which is natively supported in ROS2 Jazzy.
 
