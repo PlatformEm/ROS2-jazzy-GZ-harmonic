@@ -68,8 +68,8 @@ The launch file coordinates:
 - Gazebo GZ Harmonic
 - Required ROS2 packages:
   - ros2_control
-  - gazebo_ros
-  - nav2 (if using navigation)
+  - ros_gz_sim
+  - rviz2
 
 ## Installation
 
