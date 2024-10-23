@@ -3,7 +3,7 @@
 <package format="3">
   <name>my_robot_description</name>
   <version>1.0.0</version>
-  <description>cointains Launch files</description>
+  <description>cointains Robot files</description>
   <maintainer email="thiwakarprivate1230@gmail.com">Thiwakar S</maintainer>
   <license>
     MIT License
