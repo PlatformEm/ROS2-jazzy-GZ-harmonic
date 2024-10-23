@@ -103,14 +103,7 @@ ros2 ros2 launch my_robot_bringup my_robot_gz.launch.py
 
 3. Control the robot using geometry messages:
 ```bash
-ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "linear:
-  x: 0.2
-  y: 0.0
-  z: 0.0
-angular:
-  x: 0.0
-  y: 0.0
-  z: 0.3"
+ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.2}, angular: {z: 0.3}}"
 ```
 
 ## Key Differences from Gazebo Classic
