@@ -1,12 +1,19 @@
-# ROS2 Jazzy with Gazebo Harmonic Integration Example
+# 🤖✨ Emergence 3 Platform Project: Controlling Three Robotic Arms with ROS and Raspberry Pi! 🌟
+
+Welcome to the **EM3 Platform Project** repository! 🚀 This repo is all about an exciting adventure in robotics—getting **three robotic arms** to move using software written for **ROS Jazzy** on a **Raspberry Pi 5** running **Ubuntu 24**. This repo was brought to life by forking an existing bridge between ROS2 Jazzy and Gazebo Harmonic.
+
+## 🌈 Project Overview
+
+This project contains code for controlling 3 robotic arms simultaneously, focusing on:
+- Setting up the arms with **ROS Jazzy**.
+- Writing custom software to define movements and control each arm.
+- Simulating the arms with **Gazebo**
+- Testing and troubleshooting using **Ubuntu 24** on a **Raspberry Pi 5**.
+
 
 # Building this workspace is must. use colcon build to build the workspace.
 
 This repository demonstrates how to integrate ROS2 Jazzy Jalisco with Gazebo GZ Harmonic, showcasing a differential drive robot in a warehouse environment. This project addresses the transition from Gazebo Classic (now deprecated) to Gazebo Harmonic, which is natively supported in ROS2 Jazzy.
-
-## Background
-
-While following Edouard Renard's excellent ROS2 Udemy course (which uses ROS2 Humble with Gazebo Classic), I encountered challenges porting the examples to work with GZ Harmonic. This repository serves as a reference for others making this transition, documenting solutions to common issues and providing working examples.
 
 ## Features
 
@@ -17,11 +24,11 @@ While following Edouard Renard's excellent ROS2 Udemy course (which uses ROS2 Hu
 - Launch files for coordinated startup of all components
 - RViz2 visualization support
 
-## Project Structure
+## 🌳 Project Structure
 
 ```
 .
-├── robot_description/
+├── robot_description/ # 🎨 Resources related to the robotic arm setup (configs, URDF, models)
 │   ├── urdf/
 │   │   └── robot.urdf.xacro
 │   ├── params/
@@ -29,10 +36,12 @@ While following Edouard Renard's excellent ROS2 Udemy course (which uses ROS2 Hu
 │   └── ...
 ├── robot_bringup/
 │   ├── launch/
-│   │   └── robot_launch.py
+│   │   └── robot_launch.py  # 🐍 Script for setting up the Python-based ROS package
 │   └── ...
 └── worlds/
     └── tugbot_depot.sdf
+├── LICENSE           # ⚖️ License information
+└── README.md         # 📖 You’re reading it now!
 ```
 
 ## Key Components
@@ -73,19 +82,75 @@ The launch file coordinates:
 
 ## Installation
 
+## 🛠️ Getting Started
+
+To get the robotic arms moving, follow these steps to set up ROS2 on your Raspberry Pi 5:
+
+### Step 1: Flash Ubuntu
+
+1. **Find a compatible Ubuntu distribution** for ROS on your Pi 5. To find a suitable version, Refer to the [ROS 2 REP 2000](https://ros.org/reps/rep-2000.html). For instance, if you choose ROS Jazzy Jalisco, you will use Ubuntu Noble (24.04).
+   
+2. **Download the Ubuntu desktop image** compatible with your chosen ROS version.
+
+### Step 2: Boot and Set Up Ubuntu
+
+1. **Boot from the SD** by plugging it into the Pi and turning it on.
+
+2. **Get a Coffee** the system will be installing things so yeah you have to wait until it is done. take a break.
+
+3. **Update the Linux system** by running the following commands in the terminal:
+
 ```bash
-# Clone this repository
+   sudo apt update
+   sudo apt upgrade
+```
+### Step 3: Install ROS Jazzy
+
+Install ROS by following the normal binary installation procedure. You can find detailed instructions in the ROS 2 Documentation.
+
+Source the setup files:
+
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+
+Set the ROS domain ID:
+
+```bash
+export ROS_DOMAIN_ID=1
+```
+
+Check the need to change the `ROS_AUTOMATIC_DISCOVERY_RANGE` based on your network configuration.
+
+Follow the tutorial from the ROS2 Documentation for Jazzy to further configure your environment.
+
+### Step 4: Install the bridge between ROS2 Jazzy and Gazebo Harmonic
+
+1. Update and upgrade your Distro and its current applications
+```bash
+sudo apt update
+sudo apt upgrade
+```
+
+```bash
+2. Clone this repository
 git clone https://github.com/ThiwakarS/ROS2-jazzy-GZ-harmonic.git
 
-# Install dependencies
+3. Install dependencies
 cd ~/ros2_ws_urdf
 rosdep install --from-paths src --ignore-src -r -y
 
-# Build the workspace
+4. Build the workspace using colcon
 colcon build
 ```
 
 ## Usage
+
+0. Go up one level
+```bash
+cd ..
+```
+
 
 1. Source your ROS2 workspace:
 ```bash
@@ -102,14 +167,6 @@ ros2 launch my_robot_bringup my_robot_gz.launch.py
 ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.2}, angular: {z: 0.3}}"
 ```
 
-## Key Differences from Gazebo Classic
-
-1. **Plugin System**: GZ Harmonic uses a different plugin architecture
-2. **Bridge Configuration**: Requires explicit bridge setup between ROS2 and Gazebo
-3. **Launch System**: Updated launch file syntax and component organization
-4. **World Format**: Uses SDF format with updated syntax
-5. **Topic Names**: Different default topic naming conventions
-
 ## Common Issues and Solutions
 
 1. **Bridge Communication**: Ensure bridge configurations match exact topic names
@@ -119,21 +176,10 @@ ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.2}, angular: {z:
 
 ## References
 
+- [Forked Repository that serves as the basis for this project](https://github.com/ThiwakarS/ROS2-jazzy-GZ-harmonic)
 - [Turtlebot3 ROS2 Implementation](https://github.com/ROBOTIS-GIT/turtlebot3/tree/ros2)
 - [Gazebo GZ Harmonic Documentation](https://gazebosim.org/docs/latest/getstarted/)
-- ROS2 Jazzy Documentation
-- Special thanks to Claude.ai for debugging assistance
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit pull requests or create issues for bugs and feature requests.
-
-## Support
-
-If you encounter any difficulties or have questions, please:
-1. Check the [Issues](https://github.com/ThiwakarS/ROS2-jazzy-GZ-harmonic/issues) section
-2. Create a new issue if your problem isn't already documented
-3. Contact me at thiwakarprivate1230@gmail.com
+- [ROS2 Jazzy Documentation](https://docs.ros.org/en/jazzy/)
 
 ## License
 
